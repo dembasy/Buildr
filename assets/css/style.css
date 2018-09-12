@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Foco_Blk;
+    src: url("../css/fonts/Foco/Foco_Blk.ttf");
+  }
+
+body {
+font-family: Foco_Blk;
+}
+@font-face {
+  font-family: Kollektif;
+  src: url("../css/font/Kollektif-Bold.ttf");
+  src: url("../css/font/Kollektif.ttf");
+  src: url("../css/font/Kollektif-BoldItalic.ttf");
+  src: url("../css/font/Kollektif.ttf");
+}

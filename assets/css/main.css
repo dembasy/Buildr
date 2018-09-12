@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Foco_Blk;
+    src: url("../css/fonts/Foco/Foco_Blk.ttf");
+  }
+
+body {
+font-family: Foco_Blk;
+}
