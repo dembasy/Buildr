@@ -1,0 +1,24 @@
+Je dois réaliser le questionnaire pour pouvoir se connecter a la base, le client arrivera sur le site il aura la présentation et grâce au boutton pour accéder au questionnaire afin de le réaliser puis se rediriger vers la page connexion 
+trouver un questionnaire 
+les questions à poser seront les suivantes : 
+- Votre projet concerne : - appartement, -maison, -Immeuble 
+coté travaux 
+
+revetement, changement de murs, renovation complété ou pas, création ou changement de menuiseries isolation, électricité plomberie 
+
+surface 
+
+lieu 
+
+budget 
+
+précisiions à apporter 
+
+puis redirection vers la page de connexion 
+
+pour le questionnaire je voudrais avoir des cartes qui défile en fonction des reponses, a chaque réponse soumis la prochaine questions arrive 
+
+Finir la partie testimonaisl ,, finir le footer e tle responsive et j'aurais terminé la page d'accueil 
+
+les choses a faire, il y a le questionnaire, le dashboard, il faudrais que cela fasse deux semaines chacunes comme ca je pourrais passer les 4 prochaines semaines au php et terminé le back pusi revenir sur la front à la fin 
+
