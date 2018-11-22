@@ -13,3 +13,13 @@ Liés les documents avec la timeline
 date du projet plus image a rajouter base de données 
 
 rajouter dans la db l'adresse mail le code postal la ville 
+
+questionnaire 
+
+faire en sorte que grace au question il y ai des maitres d'oeuvre qui ressorte 
+
+Refaire une table pour l'estimation et pour les maitre d'oeuvre ? 
+
+    <nav class="navbar navbar-dark primary-color mb-5">
+      <a class="navbar-brand" href="index.php">Buildr</a>
+    </nav>

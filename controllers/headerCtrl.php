@@ -17,3 +17,19 @@ if (!empty($_GET['lang'])) {
 }
 //Si dans la session on a une langue on la charge sinon c'est le français par défaut
 include_once 'lang/' . (isset($_SESSION['lang']) ? $_SESSION['lang'] : 'FR_FR') . '.php';
+
+    $login = '';
+$errorList = array();
+$message = '';
+
+if (!empty($_POST['email'])) {
+    $login = htmlspecialchars($_POST['email']);
+} else {
+    $errorList['email'] = 'login';
+}
+
+if (!empty($_POST['password'])) {
+    $password = $_POST['password'];
+} else {
+    $errorList['password'] = 'password';
+}

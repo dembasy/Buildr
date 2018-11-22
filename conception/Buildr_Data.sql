@@ -1,7 +1,7 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
-CREATE DATABASE `buildr`;
+CREATE IF NOT EXISTS DATABASE `buildr`;
 USE `buildr`;
 #------------------------------------------------------------
 #        Script MySQL.
@@ -74,7 +74,7 @@ CREATE TABLE `d27PG_users`(
 
 	,CONSTRAINT `d27PG_users_d27PH_usersType_FK` FOREIGN KEY (`idUsersType`) REFERENCES `d27PH_usersType`(`id`)
 	,CONSTRAINT `d27PG_users_d27PJ_city0_FK` FOREIGN KEY (`idCity`) REFERENCES `d27PJ_city`(`id`)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -97,7 +97,7 @@ CREATE TABLE `d27PD_projects`(
 
 	,CONSTRAINT `d27PD_projects_d27PF_propertyTypes_FK` FOREIGN KEY (`idPropertyTypes`) REFERENCES `d27PF_propertyTypes`(`id`)
 	,CONSTRAINT `d27PD_projects_d27PG_users0_FK` FOREIGN KEY (`idUsers`) REFERENCES `d27PG_users`(`id`)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -113,7 +113,7 @@ CREATE TABLE `d27PB_projectsPictures`(
 	,CONSTRAINT `d27PB_projectsPictures_PK` PRIMARY KEY (`id`)
 
 	,CONSTRAINT `d27PB_projectsPictures_d27PD_projects_FK` FOREIGN KEY (`idProjects`) REFERENCES `d27PD_projects`(`id`)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -128,7 +128,7 @@ CREATE TABLE `d27PE_testimonials`(
 	,CONSTRAINT `d27PE_testimonials_PK` PRIMARY KEY (`id`)
 
 	,CONSTRAINT `d27PE_testimonials_d27PD_projects_FK` FOREIGN KEY (`idProjects`) REFERENCES `d27PD_projects`(`id`)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -142,7 +142,7 @@ CREATE TABLE `d27PA_picturesTestimonials`(
 	,CONSTRAINT `d27PA_picturesTestimonials_PK` PRIMARY KEY (`id`)
 
 	,CONSTRAINT `d27PA_picturesTestimonials_d27PE_testimonials_FK` FOREIGN KEY (`idTestimonials`) REFERENCES `d27PE_testimonials`(`id`)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 #------------------------------------------------------------
@@ -157,5 +157,5 @@ CREATE TABLE `d27PC_projectsDocuments`(
 	,CONSTRAINT `d27PC_projectsDocuments_PK` PRIMARY KEY (`id`)
 
 	,CONSTRAINT `d27PC_projectsDocuments_d27PD_projects_FK` FOREIGN KEY (`idProjects`) REFERENCES `d27PD_projects`(`id`)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

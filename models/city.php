@@ -5,7 +5,7 @@
  */
 class city extends database {
     //Liste des attributs
-
+    public $id;
     public $ville_departement;
     public $postalCode;
     public $cityName;
@@ -21,10 +21,10 @@ class city extends database {
      * Méthode userRegister permettant l'enregistement d'un utilisateur
      * @return type
      */
-    public function postalCodeSearch()
+    public function getCityByPostalCode()
     {
-        $query = array();
-        $query = 'SELECT `cityName`, `postalCode` FROM `d27PJ_city` '
+        $queryResult= array();
+        $query = 'SELECT `id`,`cityName`, `postalCode` FROM `d27PJ_city` '
                 . 'WHERE `postalCode` LIKE :postalCode';
         $result = $this->db->prepare($query);
         $result->bindValue(':postalCode', $this->postalCode . '%', PDO::PARAM_STR);
@@ -34,9 +34,6 @@ class city extends database {
             $queryResult = false;
         }
         return $queryResult;
-        
-
-        return $result->execute();
     }
     /**
      * Méthode destruct
