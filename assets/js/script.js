@@ -1,36 +1,51 @@
-// Firm reveal when the option is selected
+// Des que le document sera prêt
+function searchPostalCode() {
+    // une condition qui fera apparaitre les valeur seulement à partir du troisième caractère 
+    if ($('#postalCode').val().length >= 3)
+        // on va pouvoir grace au  $.post() aller chercher d'envoyer des données dans le controlleur pour l'enregistrement d'un utilisateur
+        $.post('../../controllers/registerCtl.php', {
+            // Firm reveal when the option is selected
+            postalCodeSearch: $('#postalCode').val()
+                    // Cette fonction stocke ce que l'on veut récupérer dans l'option
+        }, function (cityName) {
+            // L'option city est donc vide 
+            $("#city").empty();
+            // Donc pour chaque cityName on 
+            $.each(cityName, function (cityKey, cityValue) {
+                // Firm reveal when the option is selected
+                $("#city").append('<option value="' + cityValue.id + '">' + cityValue.cityName + " " + '</option >')
+            });
+        }, 'JSON');
+}
 $(document).ready(function () {
+
+    // On cachera de base l'élement non voulu donc c'est à dire firm
     $('#firm').hide();
     $('#firm-label').hide();
-  $("#company").on('change',function () {
-    if($("#company").val() == 2) {
-        $('#firm').show();
-        $('#firm-label').show();
-    } else {
-        $('#firm').hide();
-        $('#firm-label').hide();    
-    }
-  });
-});
-// Ajax request for postalCode
-$(function () {
-    $('#postalCode').keyup(function () {
-        // if ($('#zipCode').val().length >= 3)
-        $.post('../../controllers/registerCtl.php', {
-            postalCodeSearch: $('#postalCode').val()
-        }, function (cityName) {
-            $("#city").empty();
-            $.each(cityName, function(cityKey, cityValue){
-                $("#city").append('<option value="' + cityValue.id + '">' + cityValue.postalCode + " " + cityValue.cityName + " " + '</option >')
-                });
-        }, 'JSON');
+    // on va pouvoir créer l'évenement qui va permettre donc que quand l'option company sera séléctionner 
+    $("#company").on('change', function () {
+        // Et si la valeur de l'option est = à 2 qui correspond au Professionelle
+        if ($("#company").val() == 2) {
+            // on va affiché l'input pour qu'il puisse s'inscrire en tant que Professionelle 
+            $('#firm').show();
+            $('#firm-label').show();
+            // Autrement le champs restera caché
+        } else {
+            $('#firm').hide();
+            $('#firm-label').hide();
+        }
     });
-});
-// 
 
-$(function () {
+// Requête Ajax pour le Code postal
+
+    // Grâce à l'évenement keyup on va pouvoir lui demander qu'à partir du moment ou l'on appuiera sur une touche un évement se déclenchera 
+    $('#postalCode').keyup(function () {
+        // une condition qui fera apparaitre les valeur seulement à partir du troisième caractère 
+        searchPostalCode();
+    });
+
     $('email').blur(function () {
-        $.post('controllers/registerCtl.php', { email: $(this).val() }, function (data) {
+        $.post('controllers/registerCtl.php', {email: $(this).val()}, function (data) {
             if (data == 1) {
                 $('email').addClass('bg-danger');
                 $('#register').hide();
@@ -39,7 +54,7 @@ $(function () {
                 $('#register').show();
             }
         },
-            'JSON');
+                'JSON');
     });
 });
 
@@ -48,48 +63,8 @@ $(function () {
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
 // Sets the min-height of #page-wrapper to window size
-$(function () {
-    $(window).bind("load resize", function () {
-        var topOffset = 50;
-        var width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
-        if (width < 768) {
-            $('div.navbar-collapse').addClass('collapse');
-            topOffset = 100; // 2-row-menu
-        } else {
-            $('div.navbar-collapse').removeClass('collapse');
-        }
-
-        var height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
-        height = height - topOffset;
-        if (height < 1) height = 1;
-        if (height > topOffset) {
-            $("#page-wrapper").css("min-height", (height) + "px");
-        }
-    });
-
-    var url = window.location;
-    // var element = $('ul.nav a').filter(function() {
-    //     return this.href == url;
-    // }).addClass('active').parent().parent().addClass('in').parent();
-    var element = $('ul.nav a').filter(function () {
-        return this.href == url;
-    }).addClass('active').parent();
-
-    while (true) {
-        if (element.is('li')) {
-            element = element.parent().addClass('in').parent();
-        } else {
-            break;
-        }
-    }
-});
+// 
 // $(".deactivation").prop('disabled', true);
 // $("#modify").removeAttr('disabled');
 // $(".save").prop('disabled', true);
 
-$(function () {
-    $(document).scroll(function () {
-        var $nav = $(".navbar-fixed-top");
-        $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-    });
-});

@@ -1,4 +1,4 @@
 <ifModule mod_rewrite.c>
 RewriteEngine ON
-RewriteRule index.php/francais/ index.php?lang=FR_FR 
+#ErrorDocument 404 /404.php
 </ifModule>
