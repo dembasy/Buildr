@@ -9,11 +9,11 @@ include_once 'header.php';
             <form action="#" method="POST">
                 <fieldset>
                     <legend>Créez votre estimation</legend>
-                    <?php if(isset($project)) { ?>
-                    <p>Bienvenue sur Buildr <?= $_SESSION['firstname']; ?>. <br> Répondez à notre questionnaire afin de commencer votre projet</p>
+                    <?php if (isset($project)) { ?>
+                        <p>Bienvenue sur Buildr <?= $_SESSION['firstname']; ?>. <br> Répondez à notre questionnaire afin de commencer votre projet</p>
                     <?php } ?>
-                    
-                        <div class="form-group">
+
+                    <div class="form-group">
                         <label for="name">Quel nom souhaitez vous donnez a votre projet ?</label>
                         <input type="text" class="form-control" id="name" name="name" <?= isset($name) ? 'value="' . $name . '"' : '' ?> placeholder="La maison des Dupont"  />
                         <p class="text-danger"><?= isset($errorList['name']) ? $errorList['name'] : ''; ?></p>
@@ -63,7 +63,7 @@ include_once 'header.php';
                                 <label class="form-control-label mb-2" for="city">Quelle est votre ville ?</label>
                                 <select name="city" id="city" >
                                     <option selected disabled>Veuillez sélectionner une ville</option>   
-                                 </select>
+                                </select>
                                 <p class="text-danger"><?= isset($errorList['city']) ? $errorList['city'] : ''; ?></p>
                             </div>
                         </div>
@@ -72,16 +72,14 @@ include_once 'header.php';
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <p><span class="mb-2">Quelle est votre budget ?</span></p>
-                                <label class="form-control-label" for="startBudget">Entre</label>
-                                <input type="number" name="startBudget" id="startBudget" <?= isset($startBudget) ? 'value="' . $startBudget . '"' : '' ?> class="form-control form-control-alternative" type="number" />
+                                <label class="form-control-label" for="startBudget">Quel est votre budget ?</label>         
+                                <input type="number" name="startBudget" id="startBudget" placeholder="Entre" <?= isset($startBudget) ? 'value="' . $startBudget . '"' : '' ?> class="form-control form-control-alternative" type="number" />
                                 <p class="text-danger"><?= isset($errorList['startBudget']) ? $errorList['startBudget'] : ''; ?></p>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="form-group mt-2">
-                                <label class="form-control-label" for="endBudget">ET</label>                 
-                                <input type="number" name="endBudget" id="endBudget" <?= isset($endBudget) ? 'value="' . $endBudget . '"' : '' ?> class="form-control form-control-alternative" class="col" />
+                        <div class="col-lg-6 marge-top">
+                            <div class="form-group">
+                                <input type="number" name="endBudget" placeholder="Et" id="endBudget" <?= isset($endBudget) ? 'value="' . $endBudget . '"' : '' ?> class="form-control form-control-alternative" class="col" />
                                 <p class="text-danger"><?= isset($errorList['endBudget']) ? $errorList['endBudget'] : ''; ?></p>
                             </div>
                         </div>

@@ -11,7 +11,6 @@ if (isset($_POST['postalCodeSearch'])) {
     // on va donc affiché le résultat de la requếte et ainsi aussi éxécuté la requête getCityPostalCode
     echo json_encode($city->getCityByPostalCode());
 } else {
-
     include_once 'configuration.php';
     $profile = new users();
     $regexPhoneNumber = '/^[0][1-9][0-9]{8}$/';
@@ -76,7 +75,7 @@ if (isset($_POST['postalCodeSearch'])) {
         if (count($errorList) == 0) {
             $profile->id = $_SESSION['id'];
             $profile->usersModifications();
-        } 
+        }
         //Condition de vérification pour l'id
     }
     if (isset($_POST['delete'])) {
@@ -91,7 +90,7 @@ if (isset($_POST['postalCodeSearch'])) {
     }
 }
 
-    $profile->id = $_SESSION['id'];
-    $userProfile = $profile->getUsersInfos();
+$profile->id = $_SESSION['id'];
+$userProfile = $profile->getUsersInfos();
 
 

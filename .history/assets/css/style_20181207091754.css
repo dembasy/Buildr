@@ -221,14 +221,11 @@ a {
 
 
 
-@media (max-width: 250px) {
+@media (max-width: 350px) {
     .icard:link,
     .icard-header:active,
     .icard:visited {
         width: 100%;
-    }
-        .icard {
-width: 100%;
     }
 }
 @media (max-width: 900px) {
@@ -245,7 +242,6 @@ width: 100%;
         width: 300px;
 
     }
-
 }
 
 
@@ -451,10 +447,4 @@ width: 100%;
 .forgot {
   text-align: left; 
   margin-bottom:30px;
-}
-.marge-top{
-    margin-top: 1.5rem;
-}
-.margin-bot{
-   margin-top: 0.4rem;
 }

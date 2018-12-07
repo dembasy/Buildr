@@ -87,7 +87,7 @@ class projects extends database {
      */
     public function getProjectInfosOnce() {
         // et on finit par un execute
-        $query = 'SELECT `d27PD_projects`.`id`, `d27PD_projects`.`name`, `d27PD_projects`.`area`, `d27PD_projects`.`address`, `d27PD_projects`.`startBudget`, `d27PD_projects`.`endBudget`, `d27PD_projects`.`moreInfos`, `d27PA_rooms`.`room`, `d27PF_propertyTypes`.`type`, `d27PG_users`.`firstname`, `d27PJ_city`.`cityName` '
+        $query = 'SELECT `d27PD_projects`.`id`, `d27PD_projects`.`name`, `d27PD_projects`.`area`, `d27PD_projects`.`address`, `d27PD_projects`.`startBudget`, `d27PD_projects`.`endBudget`, `d27PD_projects`.`moreInfos`, `d27PA_rooms`.`room`, `d27PD_projects`.`idPropertyTypes`, `d27PF_propertyTypes`.`type`, `d27PD_projects`.`idRooms`, `d27PD_projects`.`idCity`, `d27PG_users`.`firstname`, `d27PJ_city`.`cityName` '
                 . 'FROM `d27PD_projects` '
                 // Inner join permet de récupêrer uniquement les informations d'une table qui est en lien avec une ou plusieurs autres tables et de récupérer les données relatives à celle ci 
                 . 'INNER JOIN `d27PA_rooms` '

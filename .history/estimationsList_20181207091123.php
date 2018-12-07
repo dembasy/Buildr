@@ -17,7 +17,7 @@ include_once 'header.php';
                         <p>Vous n'avez pas encore de projet, vous pouvez réalisez une estimation</p>
                     <?php } else { ?>
                     <?php foreach ($projectsList as $projectsListName) { ?>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-sm-8 col-xs-6">
                             <div class="wrapper">
                                 <div class="icard blue">
                                     <div class="icard-header-img">

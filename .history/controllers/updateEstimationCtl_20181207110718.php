@@ -35,7 +35,7 @@ if (isset($_POST['postalCodeSearch'])) {
     if (isset($_POST['modifyProject'])) {
 // Si l'input n'est pas vide 
         if (!empty($_POST['rooms'])) {
-// Insérer dans la variable $rooms la valeur de l'input
+// Insérer dans la variable $room la valeur de l'input
             $project->idRooms = htmlspecialchars($_POST['rooms']);
 // Sinon affiché une erreur invitant l'utilisateur à vérifier sa saisie
         } else {
@@ -103,6 +103,7 @@ if (isset($_POST['postalCodeSearch'])) {
         } else {
             $errorList['startBudget'] = 'Veuillez saisir un budget de départ';
         }
+
         if (!empty($_POST['endBudget'])) {
             if (preg_match($regexBudget, $_POST['endBudget'])) {
                 $project->endBudget = htmlspecialchars($_POST['endBudget']);
@@ -112,11 +113,13 @@ if (isset($_POST['postalCodeSearch'])) {
         } else {
             $errorList['endBudget'] = 'Veuillez saisir un budget maximum';
         }
+
         if (!isset($errorList['startBudget']) && !isset($errorList['endBudget'])) {
             if ($project->startBudget >= $project->endBudget) {
                 $errorList['startBudget'] = 'Le premier montant doit être inférieur au deuxième';
             }
         }
+
         if (!empty($_POST['moreInfos'])) {
             if (preg_match($regexName, $_POST['moreInfos'])) {
                 $project->moreInfos = htmlspecialchars($_POST['moreInfos']);
@@ -126,9 +129,12 @@ if (isset($_POST['postalCodeSearch'])) {
         } else {
             $errorList['moreInfos'] = 'Veuillez saisir la partie informations complémentaires';
         }
+
+
         if (count($errorList) == 0) {
             $project->id = $_GET['id'];
             $project->idUsers = $_SESSION['id'];
+            $project->projectModifications();
             if ($project->projectModifications()) {
                 header('Location:viewEstimation.php?id=' . $_GET['id']);
                 exit;
@@ -136,5 +142,15 @@ if (isset($_POST['postalCodeSearch'])) {
         }
     }
 }
+
 $project->id = $_GET['id'];
 $userProject = $project->getProjectInfosOnce();
+
+if (isset($_POST['deleteProject'])) {
+    $profile->id = $_GET['id'];
+    //Utilisation de la méthode de suppression
+    if ($profile->removeProject()) {
+        header('Location: estimation.php');
+        exit;
+    }
+}

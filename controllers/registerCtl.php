@@ -1,4 +1,5 @@
 <?php
+
 // Appel de l 'ajax
 // On définit donc que si le PostalCodeSearch est définie
 if (isset($_POST['postalCodeSearch'])) {
@@ -18,7 +19,7 @@ if (isset($_POST['postalCodeSearch'])) {
     $usersType = new usersType();
     // On appelle la méthode getUsersType
     $usersTypeList = $usersType->getUsersType();
-
+    $user = new users();
     // Regex des différents inputs
     $regexPhoneNumber = '/^[0][1-9][0-9]{8}$/';
     $regexzipCode = '/^[0-9]{5}$/';
@@ -45,7 +46,7 @@ if (isset($_POST['postalCodeSearch'])) {
             // On indique à l'utilisateur que son nom est requis 
             $errorList['lastname'] = 'Veuillez indiquer votre nom';
         }
-       // On test si l'input firstname  n'est pas vide 
+        // On test si l'input firstname  n'est pas vide 
         if (!empty($_POST['firstname'])) {
             // On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends si c'est le cas
             if (preg_match($regexName, $_POST['firstname'])) {
@@ -53,7 +54,7 @@ if (isset($_POST['postalCodeSearch'])) {
                 $user->firstname = htmlspecialchars($_POST['firstname']);
                 // Sinon
             } else {
-                 // On indique qu'il y a eu une erreur et lui indique qu'il y a eu une erreur lors de la saisie
+                // On indique qu'il y a eu une erreur et lui indique qu'il y a eu une erreur lors de la saisie
                 $errorList['firstname'] = 'La saisie de votre prénom est invalide';
             }
             // Sinon
@@ -61,7 +62,7 @@ if (isset($_POST['postalCodeSearch'])) {
             // On indique à l'utilisateur que son prénom est requis 
             $errorList['firstname'] = 'Veuillez indiquer votre prénom';
         }
-       // On test si l'input address  n'est pas vide 
+        // On test si l'input address  n'est pas vide 
         if (!empty($_POST['address'])) {
             // On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends si c'est le cas
             if (preg_match($regexNumberLetter, $_POST['address'])) {
@@ -78,34 +79,36 @@ if (isset($_POST['postalCodeSearch'])) {
             $errorList['address'] = 'Veuillez indiquer votre adresse';
         }
 
-       // On test si l'input usersType n'est pas vide 
+        // On test si l'input usersType n'est pas vide 
         if (!empty($_POST['usersType'])) {
             // On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends si c'est le cas
             if (preg_match($regexNumberLetter, $_POST['usersType'])) {
-                 // Hydratation de la valeur de l'input
-                $user->usersType = htmlspecialchars($_POST['usersType']);
+                // Hydratation de la valeur de l'input
+                $user->idUsersType = htmlspecialchars($_POST['usersType']);
                 //Sinon
             }
-        } 
-
-
-         // On test si l'input usersType n'est pas vide et que l'userType est == à 2 
-        if (!empty($_POST['firm']) && $usersType == 'Professionnel') {
-           // On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends si c'est le cas
-            if (preg_match($regexName, $_POST['firm'])) {
-                // Hydratation de la valeur de l'input
-                $user->firm = htmlspecialchars($_POST['firm']);
-                // Sinon
-            } else {
-                $errorList['firm'] = 'Saisie invalide';
-            }
-            // Sinon si l'input usersType est  vide et qu'il correspond bien à 2
-        } else if (empty($_POST['firm']) && $usersType == 2) {
-            // On invite le détenteur de société d'en saisir une
-            $errorList['firm'] = 'Veuillez saisir firm';
         }
 
-       // On test si l'input postalCode n'est pas vide 
+
+        // On test si l'input usersType n'est pas vide et que l'userType est == à 2 
+        if ($_POST['usersType'] == 2) {
+            if (!empty($_POST['firm'])) {
+                // On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends si c'est le cas
+                if (preg_match($regexName, $_POST['firm'])) {
+                    // Hydratation de la valeur de l'input
+                    $user->firm = htmlspecialchars($_POST['firm']);
+                    // Sinon
+                } else {
+                    $errorList['firm'] = 'Saisie invalide';
+                }
+                // Sinon si l'input usersType est  vide et qu'il correspond bien à 2
+            } else {
+                // On invite le détenteur de société d'en saisir une
+                $errorList['firm'] = 'Veuillez saisir firm';
+            }
+        }
+
+        // On test si l'input postalCode n'est pas vide 
         if (!empty($_POST['postalCode'])) {
             // On vérifie avec le preg match si la valeur respecte bien les valeurs que l 'ont attends si c' est le cas
             if (preg_match($regexzipCode, $_POST['postalCode'])) {
@@ -126,7 +129,7 @@ if (isset($_POST['postalCodeSearch'])) {
             //  On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends si c'est le cas
             if (preg_match($regexNumberLetter, $_POST['city'])) {
                 // Hydratation de la valeur de l'input
-                $user->city = htmlspecialchars($_POST['city']);
+                $user->idCity = htmlspecialchars($_POST['city']);
                 // Insérer dans la variable $lastname la valeur de l'input
             } else {
                 // Insérer dans la variable $lastname la valeur de l'input
@@ -162,7 +165,7 @@ if (isset($_POST['postalCodeSearch'])) {
             // Insérer dans la variable $lastname la valeur de l'input
             $errorList['email'] = 'Votre email est invalide';
         }
-       // On test si l'input postalCode n'est pas vide 
+        // On test si l'input postalCode n'est pas vide 
         if (!empty($_POST['password']) && !empty($_POST['passwordVerify']) && $_POST['password'] == $_POST['passwordVerify']) {
             // Hydratation de la valeur de l'input
             $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -173,16 +176,14 @@ if (isset($_POST['postalCodeSearch'])) {
         }
         // Si l'input n'est pas vide
         if (count($errorList) == 0) {
-             // On va instancié un nouvel objet $users
-            $user = new users();
+            // On va instancié un nouvel objet $users
             // On appelle la méthode usersRegister
-            $user->usersRegister();
-        }
-        // Si il n'y aucune erreur dans notre tableau 
-        if (count($errorList) == 0) {
-            // On redirige vers la page login.php pour se connecter
-            header('Location: login.php');
-            exit;
+            if ($user->usersRegister()) {
+
+                // On redirige vers la page login.php pour se connecter
+                header('Location: login.php');
+                exit;
+            }
         }
     }
 }

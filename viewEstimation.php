@@ -2,9 +2,7 @@
 session_start();
 include_once 'controllers/viewEstimationCtl.php';
 include_once 'header.php';
-
 ?>
-
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header mr-2">Résumé de mon projet</h2>
@@ -25,11 +23,30 @@ include_once 'header.php';
                 <p>La pièce choisi : <?= $userProject->room ?></p>
                 <p>Votre ville : <?= $userProject->cityName ?></p>
             </div>
-            <a  class="btn btn-primary" href="updateEstimation.php?id=<?= $userProject->id ?>" name="modify" id="modify">Modifier mes informations</a>
-             <input type="submit"  class="btn btn-danger"  name="delete" id="delete" value="Supprimer mes informations" />
+            <a  class="btn btn-primary" href="updateEstimation.php?id=<?= $userProject->id ?>">Modifier mes informations</a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#basicExampleModal">
+                Supprimer mon projet
+            </button>
+            <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Suppression du projet</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Vous êtes sur le point de supprimer votre projet, <br/> en êtes vous sûr ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                            <a class="btn btn-danger" href="viewEstimation.php?delete=<?= $userProject->id ?>">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-
 <?php include_once 'footer.php'; ?>

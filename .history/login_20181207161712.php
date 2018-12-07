@@ -6,7 +6,7 @@ var_dump($message);
 ?>
 
 <div class="main-div">
-<?php if($email = true) { ?>
+<?php if($user->email = true) { ?>
     <p>Votre inscription a bien été prise en compte</p>
 <?php } ?>
     <div class="panel">

@@ -19,7 +19,7 @@ include_once 'controllers/registerCtl.php';
                     <select name="usersType" class="mb-4" id="company">
                         <option selected disabled>Veuillez sélectionner une option</option>
                         <?php foreach ($usersTypeList as $usersTypeListName) { ?>
-                            <option value="<?= $usersTypeListName->id ?>"><?= $usersTypeListName->type ?></option>
+                            <option value="<?= $usersTypeListName->id ?>"<?= isset($_POST['usersType']) && $_POST['usersType'] == $usersTypeListName->id ? 'selected' : ''; ?>><?= $usersTypeListName->type ?></option>
                             <?php }
                         ?>
                     </select>
@@ -57,7 +57,7 @@ include_once 'controllers/registerCtl.php';
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="form-group has-error">
                                     <label class="form-control-label mb-2" id="firm-label" for="firm"><?= REGISTER_COMPANY ?></label>
                                     <input type="text" name="firm" id="firm" <?= isset($firm) ? 'value="' . $firm . '"' : '' ?> class="form-control form-control-alternative"/>

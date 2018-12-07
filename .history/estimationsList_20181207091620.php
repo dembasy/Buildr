@@ -8,7 +8,7 @@ include_once 'header.php';
         <h2 class="page-header">Mes estimations</h2>
     </div>
 </div>
-<div class="align-items-center mt-4 mb-4">
+<div class="align-items-center col-slg-6 mt-4 mb-4">
     <div class="card shadow">
         <div class="card-body">
             <div id="page-wrapper">

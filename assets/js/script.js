@@ -20,8 +20,15 @@ function searchPostalCode() {
 $(document).ready(function () {
 
     // On cachera de base l'élement non voulu donc c'est à dire firm
-    $('#firm').hide();
-    $('#firm-label').hide();
+    if ($("#company").val() == 2) {
+            // on va affiché l'input pour qu'il puisse s'inscrire en tant que Professionelle 
+            $('#firm').show();
+            $('#firm-label').show();
+            // Autrement le champs restera caché
+        } else {
+            $('#firm').hide();
+            $('#firm-label').hide();
+        }
     // on va pouvoir créer l'évenement qui va permettre donc que quand l'option company sera séléctionner 
     $("#company").on('change', function () {
         // Et si la valeur de l'option est = à 2 qui correspond au Professionelle

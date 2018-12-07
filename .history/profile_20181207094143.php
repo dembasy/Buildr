@@ -63,52 +63,44 @@ include_once 'header.php';
                             <div class="form-group">
                                 <label class="form-control-label" for="city"><?= REGISTER_CITY ?></label>
                                 <select name="city" id = "city" >
-                                    <option selected value="<?= $userProfile->idCity ?>"><?= $userProfile->cityName ?></option>
+                                    <option selected value="<?= $userProfile->idCity?>"><?= $userProfile->cityName ?></option>
                                 </select>
                                 <p class="text-danger"><?= isset($errorList['city']) ? $errorList['city'] : ''; ?></p>
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#frameModalBottom">
-                        Modifier mon projet
-                    </button>
-                    <div class="modal fade bottom" id="frameModalBottom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">                     
-                        <div class="modal-dialog modal-frame modal-bottom" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <div class="row d-flex justify-content-center align-items-center">
-                                        <p class="pt-3 pr-2">Vous etes sur le point de changer vos informations, êtes vous sur de votre choix </p>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler la modification</button>
-                                        <input type="submit"  class="btn btn-primary"  name="modify" id="modify" value="Modifier mes informations" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#basicExampleModal">
-                        Supprimer mon compte
-                    </button>
-                    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Suppression du compte</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Vous êtes sur le point de supprimer votre compte. <br/> Vous serez rediriger vers la page d'accueil. Etes vous sur de votre choix ?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                    <input  type="submit" name="delete" id="delete" value="Oui" class="btn btn-danger"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <input type="submit"  class="btn btn-primary"  name="modify" id="modify" data-toggle="modal" data-target="#basicExampleModal"data-toggle="modal" data-target="#basicExampleModal" value="Modifier mes informations" />
+                    <input type="submit"  class="btn btn-danger"  name="delete" id="delete" value="Supprimer mes informations" />
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input  type="submit" name="delete" id="delete" value="Supprimer mes informations" class="btn btn-danger"/>
+      </div>
+    </div>
+  </div>
+</div>
+
                 </fieldset>
             </form>
+            
         </div>
     </div>
 </div>
