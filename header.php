@@ -1,4 +1,6 @@
-
+<?php 
+include_once 'controllers/headerCtl.php';
+?>
 <!DOCTYPE html>
 <html lang="fr" class="full-height">
     <head>
@@ -80,7 +82,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <ul>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?action=disconnect"><i class="fas fa-sign-out-alt"></i> <?= NAV_DISCONNECT ?></a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?action=disconnect"><i class="fas fa-sign-out-alt"></i>Déconnexion</a></li>
                                 </ul>
                             </div>
                         </li>

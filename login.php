@@ -2,7 +2,6 @@
 session_start();
 include_once 'controllers/loginCtl.php';
 include_once 'header.php';
-var_dump($message);
 ?>
 
 <div class="main-div">
