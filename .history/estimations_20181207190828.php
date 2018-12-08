@@ -22,7 +22,7 @@ include_once 'header.php';
                     </div>
 
                 </div>
-                <div class="col-lg-6 col-sm-4 col-xs-2">
+                <div class="col-lg-6 col-sm-4 col-xs-overflow">
                     <div class="wrapper">
                         <div class="icard blue">
                             <div class="icard-header mt-2">

@@ -5,6 +5,9 @@ include_once 'header.php';
 ?>
 
 <div class="main-div">
+<?php if($_POST['email'] = true) { ?>
+    <p>Votre inscription a bien été prise en compte</p>
+<?php } ?>
     <div class="panel">
         <h2 class="ml-5 mb-4">Me connecter</h2>
     </div>
@@ -17,6 +20,7 @@ include_once 'header.php';
         </div>
         <button type="submit" class="btn btn-primary" name="submitLogin" id="submitLogin">Connexion</button>
         <p class="text-danger"><?= isset($errorList['connexion']) ? $errorList['connexion'] : ''; ?></p>
+
     </form>
 </div>
 <?php include_once 'footer.php'; ?>

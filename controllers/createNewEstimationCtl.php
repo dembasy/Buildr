@@ -12,15 +12,17 @@ if (isset($_POST['postalCodeSearch'])) {
     echo json_encode($city->getCityByPostalCode());
 } else {
     include_once 'configuration.php';
-
+;
+// On instancie la variable $propertyTypes qui va nous servir a affiché nos informations dans la liste déroulante
     $propertyTypes = new propertyTypes();
     // On appelle la méthode getPropertyTypes
     $propertyTypesList = $propertyTypes->getPropertyTypes();
-
+// On instancie la variable $rooms  qui va nous servir a affiché nos informations dans la liste déroulante
     $rooms = new rooms();
     // On appelle la méthode getRoomsList
     $roomsList = $rooms->getRoomsList();
 
+    // On crée un  nouvel objet qui nous serviraa crée un projet
     $project = new projects();
 
 

@@ -90,12 +90,13 @@ if (isset($_POST['postalCodeSearch'])) {
         }
 
 
-        // On test si l'input usersType n'est pas vide et que l'userType est == à 2 
+        // On test si l'userType est == à 2 
         if ($_POST['usersType'] == 2) {
+            // On test si le Post firm n'est pas vide 
             if (!empty($_POST['firm'])) {
-                // On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends si c'est le cas
+                // On vérifie avec le preg match si la valeur respecte bien les valeurs que l'ont attends grâce a notre regex si c'est le cas
                 if (preg_match($regexName, $_POST['firm'])) {
-                    // Hydratation de la valeur de l'input
+                    // On passe nos valeurs dans nos attributs
                     $user->firm = htmlspecialchars($_POST['firm']);
                     // Sinon
                 } else {

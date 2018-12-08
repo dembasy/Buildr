@@ -61,7 +61,7 @@ include_once 'controllers/registerCtl.php';
                                 <div class="form-group has-error">
                                     <label class="form-control-label mb-2" id="firm-label" for="firm"><?= REGISTER_COMPANY ?></label>
                                     <input type="text" name="firm" id="firm" <?= isset($firm) ? 'value="' . $firm . '"' : '' ?> class="form-control form-control-alternative"/>
-                                    <p class="text-danger" id="firm-p"><?= isset($errorList['firm']) ? $errorList['firm'] : ''; ?></p>
+                                    <p class="text-danger"><?= isset($errorList['firm']) ? $errorList['firm'] : ''; ?></p>
                                 </div>
                             </div>
                         </div>

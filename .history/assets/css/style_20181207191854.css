@@ -221,7 +221,7 @@ a {
 
 
 
-@media (max-width: 350px) {
+@media (min-width: 250px) {
 
         .icard {
         width: 100px;
@@ -318,8 +318,8 @@ a {
 
 }
 .icard {
-  height: 230px;
-  width: 400px;
+  height: 180px;
+  width: 350px;
   display: inline-block;
   border-radius: 10px;
   transition: 0.2s ease-in-out;

@@ -221,13 +221,23 @@ a {
 
 
 
-@media (max-width: 350px) {
-
+@media (min-width: 250px) {
+    .icard:link,
+    .icard-header:active,
+    .icard:visited {
+        width: 100%;
+    }
         .icard {
-        width: 100px;
+width: 100%;
     }
 }
-
+@media (max-width: 900px) {
+    .icard:link,
+    .icard-header:active,
+    .icard:visited {
+        width: 100%;
+    }
+}
 
 @media (min-width: 768px) {
     .img-style {
@@ -274,7 +284,7 @@ a {
 .panel-red>a:hover {
     color: #b52b27;
 }
-
+ax
 .panel-yellow {
     border-color: #f0ad4e;
 }
@@ -318,10 +328,10 @@ a {
 
 }
 .icard {
-  height: 230px;
-  width: 400px;
+  height: 180pt;
+  width: 350pt;
   display: inline-block;
-  border-radius: 10px;
+  border-radius: 10pt;
   transition: 0.2s ease-in-out;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
 }
