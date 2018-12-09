@@ -12,8 +12,7 @@ include_once 'controllers/headerCtl.php';
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.min.css">
-        <link rel="shortcut icon" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/favicon.ico">
-        <link rel="stylesheet"  href="assets/css/style.css" />
+    <link rel="stylesheet"  href="assets/css/style.css" />
     </head>
     <body>
         <?php if ($_SERVER['PHP_SELF'] == '/index.php') { ?>
@@ -28,9 +27,6 @@ include_once 'controllers/headerCtl.php';
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="">Comment ça marche ?</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Réalisations</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="login.php"><i class="fas fa-wrench fa-style"></i> Espace Pro</a>
@@ -58,11 +54,11 @@ include_once 'controllers/headerCtl.php';
             </header>
         <?php } else if ($_SERVER['PHP_SELF'] == '/login.php' || $_SERVER['PHP_SELF'] == '/register.php') { ?>
             <nav class="navbar-login">
-                <a class="navbar-brand" href="index.php">Buildr</a>
+                <a class="navbar-brand brand-size" href="index.php">Buildr</a>
             </nav>
         <?php } else { ?>
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue mb-5">
-                <a class="navbar-brand" href="index.php"><strong>Buildr</strong></a>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue">
+                <a class="navbar-brand brand-size" href="index.php"><strong>Buildr</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -70,7 +66,7 @@ include_once 'controllers/headerCtl.php';
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="estimations.php"><i class="fa fa-table fa-fw"></i> Mes estimations</a>
+                            <a class="nav-link" href="project.php"><i class="fa fa-table fa-fw"></i> Mes projets</a>
                         </li>
                         <li class="nav-item" >
                             <a class="nav-link" href="profile.php?id=<?= $_SESSION['id'] ?>"><i class="fa fa-edit fa-fw"></i> Mon profil</a>

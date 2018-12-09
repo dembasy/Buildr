@@ -1,6 +1,5 @@
 <?php
 session_start();
-include_once 'controllers/estimationsListCtl.php';
 include_once 'header.php';
 ?>
 <div class="row">
@@ -16,7 +15,7 @@ include_once 'header.php';
                     <div class="wrapper">
                         <div class="icard blue">
                             <div class="icard-header mt-2">
-                                <a href="estimationsList.php">Mes estimations</a>
+                                <a href="projectsList.php">Mes projets</a>
                             </div>
                         </div>
                     </div>
@@ -26,7 +25,7 @@ include_once 'header.php';
                     <div class="wrapper">
                         <div class="icard blue">
                             <div class="icard-header mt-2">
-                            <a href="createNewEstimation.php">Faire une nouvelle estimations</a>
+                                <a href="createNewProject.php">Démarrer un nouveau projet</a>
                         </div>
                     </div>
                 </div>

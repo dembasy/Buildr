@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'controllers/viewEstimationCtl.php';
+include_once 'controllers/viewProjectCtl.php';
 include_once 'header.php';
 ?>
 <div class="row">
@@ -23,7 +23,7 @@ include_once 'header.php';
                 <p>La pièce choisi : <?= $userProject->room ?></p>
                 <p>Votre ville : <?= $userProject->cityName ?></p>
             </div>
-            <a  class="btn btn-primary" href="updateEstimation.php?id=<?= $userProject->id ?>">Modifier mes informations</a>
+            <a  class="btn btn-primary" href="updateProject.php?id=<?= $userProject->id ?>">Modifier mes informations</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#basicExampleModal">
                 Supprimer mon projet
             </button>
@@ -41,7 +41,7 @@ include_once 'header.php';
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                            <a class="btn btn-danger" href="viewEstimation.php?delete=<?= $userProject->id ?>">Supprimer</a>
+                            <a class="btn btn-danger" href="viewProject.php?delete=<?= $userProject->id ?>">Supprimer</a>
                         </div>
                     </div>
                 </div>

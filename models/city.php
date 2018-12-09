@@ -12,7 +12,7 @@ class city extends database {
     public $cityName;
 
     /**
-     * Méthode construct
+     * On crée une méthode magique __construct
      */
     public function __construct() {
         parent::__construct();
@@ -24,18 +24,18 @@ class city extends database {
      * @return type
      */
     public function getCityByPostalCode() {
-        // Définition d'une varible ou l'on va donc récupérer un tableau qui contiendra notre résultat 
+        // Définition d'une variable ou l'on va donc récupérer un tableau qui contiendra notre résultat 
         $queryResult = array();
-        // on prépare la requête query qui contient le marqueur nominatif :postalCode pour l'attribut qui se trouve dans la table city
-        // requête SQL ou l'a va séléctionner les élements que l'on souhaite récupérer 
+        // On prépare la requête query qui contient SELECT dans lequel on va pouvoir seléctonner les informations que l'on veut récuperer 
         $query = 'SELECT `id`,`cityName`, `postalCode` FROM `d27PJ_city` '
                 . 'WHERE `postalCode` LIKE :postalCode';
-        // $result est la requête que l'on prépare via un prepare() et un bindValue.
+        // On va définir une variable result qui contiendra la requête qui va se connecter à la base de données et que l'on préparera via un prepare() 
         $result = $this->db->prepare($query);
+        //On attribut les informations envoyé par le controller dans les attributs de la classe en passant par les marqueurs nominatif et en utilisant la fonction bindValue
         $result->bindValue(':postalCode', $this->postalCode . '%', PDO::PARAM_STR);
         // On teste si la requête s'éxécute correctement, si oui on crée $queryResult qui est un objet tableaux  avec les résultats de la requête
         if ($result->execute()) {
-            // on réalise un fetchAll car il retournera un tableau 
+            // on va récuperer la variable $queryResult qui est un objet tableaux avec les resultats de la requete
             $queryResult = $result->fetchAll(PDO::FETCH_OBJ);
         } else {
             $queryResult = false;

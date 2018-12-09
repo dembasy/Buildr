@@ -102,7 +102,7 @@ include_once 'header.php';
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                                    <input  type="submit" name="delete" id="delete" value="Oui" class="btn btn-danger"/>
+                                    <input  type="submit" name="deleteUser" id="deleteUser" value="Oui" class="btn btn-danger"/>
                                 </div>
                             </div>
                         </div>

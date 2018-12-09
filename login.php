@@ -4,7 +4,7 @@ include_once 'controllers/loginCtl.php';
 include_once 'header.php';
 ?>
 
-<div class="main-div">
+<div class="main-div"> 
     <div class="panel">
         <h2 class="ml-5 mb-4">Me connecter</h2>
     </div>

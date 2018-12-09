@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'controllers/estimationsListCtl.php';
+include_once 'controllers/projectsListCtl.php';
 include_once 'header.php';
 ?>
 <div class="row">
@@ -21,7 +21,7 @@ include_once 'header.php';
                             <div class="wrapper">
                                 <div class="icard blue">
                                     <div class="icard-header-img">
-                                        <a href="viewEstimation.php?id=<?= $projectsListName->id ?>"><?= $projectsListName->name ?></a>
+                                        <a href="viewProject.php?id=<?= $projectsListName->id ?>"><?= $projectsListName->name ?></a>
                                     </div>
                                 </div>
                                 </div>

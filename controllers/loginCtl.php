@@ -38,7 +38,7 @@ if (isset($_POST['submitLogin'])) {
                 $_SESSION['firstname'] = $user->firstname;
                 $_SESSION['isConnect'] = true;
                 // Si tout c'est bien passé on redirige l'utilisateur vers la page estimations 
-                header('Location: estimations.php');
+                header('Location: project.php');
                 exit;
             } else {
                 // Sinon la connexion échoue

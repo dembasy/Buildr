@@ -1,19 +1,22 @@
 <?php
 
-
 /**
  * Création de la classe propertyTypes qui va hériter de la class database via un extends
  */
 class propertyTypes extends database {
+
     public $id = '';
     public $type = '';
 
-
-
+    /**
+     * On crée une méthode magique __construct
+     */
     public function __construct() {
+        // On appelle le construct du parent via "parent::"
         parent::__construct();
         $this->dbConnect();
     }
+
     /**
      * Création de la méthode getPropertyTypes
      */
@@ -22,10 +25,11 @@ class propertyTypes extends database {
         $result = $this->db->query('SELECT `id`, `type` FROM `d27PF_propertyTypes`');
         // On va faire une condition pour vérifier si notre variable est bien de type de objet si c'est le cas
         if (is_object($result)) {
-        // On va définir notre variable $resultPropertyType ou va fetchAll notre resultat 
+            // On va définir notre variable $resultPropertyType ou va fetchAll notre resultat 
             $resultPropertyType = $result->fetchAll(PDO::FETCH_OBJ);
         }
         // On retourne notre résultat
         return $resultPropertyType;
     }
+
 }

@@ -20,24 +20,14 @@
             <div class="row mt-3 dark-grey-text">
                 <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
                     <h6 class="text-uppercase font-weight-bold">Buildr</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>Vous aide à trouver des maîtres d'oeuvre qualifiés et de confiance pour vos travaux de rénovations.</p>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p><a class="dark-grey-text" href="#!">Your Account</a></p>
-                    <p><a class="dark-grey-text" href="#!">Become an Affiliate</a></p>
-                    <p><a class="dark-grey-text" href="#!">Shipping Rates</a></p>
-                    <p><a class="dark-grey-text" href="#!">Help</a></p>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p><i class="fa fa-home mr-3"></i>Noyon, 60400</p>
                     <p><i class="fa fa-envelope mr-3"></i>buildr@company.io</p>
-                    <p><i class="fa fa-phone mr-3"></i> + 06 52 52 52 52</p>
-                    <p><i class="fa fa-print mr-3"></i> + 06 88 88 52 52</p>
+                    <p><i class="fa fa-phone mr-3"></i> +06 52 52 52 52</p>
+                    <p><i class="fa fa-print mr-3"></i> +03 23 88 52 52</p>
                 </div>
             </div>
         </div>
