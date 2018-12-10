@@ -23,7 +23,7 @@ include_once 'header.php';
                 <p>La pièce choisi : <?= $userProject->room ?></p>
                 <p>Votre ville : <?= $userProject->cityName ?></p>
             </div>
-            <a  class="btn btn-primary" href="updateProject.php?id=<?= $userProject->id ?>">Modifier mes informations</a>
+            <a  class="btn btn-primary" href="updateProject.php?id=<?= $userProject->id ?>">Modifier mon projet</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#basicExampleModal">
                 Supprimer mon projet
             </button>

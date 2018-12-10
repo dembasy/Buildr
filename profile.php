@@ -70,7 +70,7 @@ include_once 'header.php';
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#frameModalBottom">
-                        Modifier mon projet
+                        Modifier mes informations
                     </button>
                     <div class="modal fade bottom" id="frameModalBottom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">                     
                         <div class="modal-dialog modal-frame modal-bottom" role="document">

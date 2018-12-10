@@ -1,5 +1,4 @@
 <?php
-// session_start();
 include_once 'header.php';
 include_once 'class/database.php';
 include_once 'controllers/registerCtl.php';
